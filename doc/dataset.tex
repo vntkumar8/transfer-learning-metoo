@@ -1,0 +1,79 @@
+	\section{The Dataset} 
+	
+	Due to Twitter legal requirements, the dataset \cite{Gautam_Mathur_Gosangi_Mahata_Sawhney_Shah_2020}  shared by challenge organizers only had tweet-ids and their corresponding labels, using which participants had to download those tweets directly. Technically the process is known as tweet hydration.  
+	
+	The dataset was provided into two sets, namely the training set with 7,978 tweets and test set with 1,995 tweets. The test dataset was released later in the course of the challenge. Upon submission of the results, the leaderboard showed the evaluation on only 70\% of the test set (as a development set), allowing the participants to tune their approaches further, but the final results were disclosed after the challenge was over. 
+	
+	\paragraph{Tweet Hydration} We used Hydrator \cite{hydrator}, an open-source software to hydrate our tweets. Due to the hostile nature of tweets, we were able to hydrate only 6,869 tweets (rest 14\% tweets were deleted) from the train set and 1,737 tweets (rest 13\% tweets were deleted) from the test set.
+	
+	The Hydrator has enabled us to also extract other relevant information related to specifics of tweet, such as -- favorites count, retweet count, flag signifying whether tweet is sensitive and information whether the person's twitter profile is verified or not.
+% 	\begin{enumerate}
+% 		\item favorites\_count – Count to indicate approximately how many times the tweet has been liked by the users
+% 	\item 	possibly\_sensitive - This field gets surfaced only when the tweet contains a link. It doesn’t necessarily imply that the field doesn’t pertain to the tweet content itself, instead the label flags as an indication that the URL in tweet may contain media identified as sensitive content
+% 	\item  retweet\_count – Number of times the tweet has been retweeted
+% 	\item  user\_\_verified – whether the user who has posted the tweet is verified user
+% 	\end{enumerate}
+	
+	%\noindent {\bf TODO:  Do you use these information in the experiments? If not, then no point writing it, given the page limits.-- No we didn't used above 4 points.}
+	
+	\paragraph{Derived Labels}
+	We created 2 flags based on the existence of labels, namely \textit{None\_all\_classes}, a flag which is 1 when all other labels are zeroes and \textit{None\_wo\_support}, flagged 1 when all other labels except \textit{Support} are zeros. Interestingly, in the overall training data, there is only a single tweet having \textit{Support} as 1, rest all classes as 0.
+	Label pairs (\textit{Support}, \textit{Oppose}) and (\textit{Directed\_Hate}, \textit{Generalized\_Hate}) are mutually exclusive, whereas labels \textit{Text\_Only\_Informative} and \textit{Image\_Only\_Informative} that represent the relevance of text and image with tweets are not exclusive. 
+	Among the 6,869 train data tweets that we were able to hydrate, 26\% of tweets have both image and text as informative, which means that when both image and text are taken together, they are related and informative. 20\% tweets state none of these 2 labels as informative. 73\% of tweets say that only text is informative and 33\% state that only image is informative.
+	
+	We observed severe class imbalance with most of the labels. The distribution of positive samples per class in shown is Table \ref{tab:distr1}. 
+	
+	\begin{table}[!htbp]
+		\centering
+		\resizebox{0.35\textwidth}{!}{%
+			\begin{tabular}{@{}lcc@{}}
+				\toprule
+				\textbf{Label}           & Positive Samples & \% Positive \\ \midrule
+				Text\_Only\_Informative  & 4,989             & 72.63       \\
+				Image\_Only\_Informative & 2,271             & 33.06       \\
+				Directed\_Hate           & 257              & 3.74        \\
+				Generalized\_Hate        & 194              & 2.82        \\
+				Sarcasm                  & 146              & 2.13        \\
+				Allegation               & 365              & 5.31        \\
+				Justification            & 230              & 3.35        \\
+				Refutation               & 143              & 2.08        \\
+				Support                  & 2,189             & 31.87       \\
+				Oppose                   & 505              & 7.35        \\ \bottomrule
+			\end{tabular}%
+		
+		}
+
+			\caption{Number of positive labelled tweets}
+	\label{tab:distr1}
+	\end{table}
+	
+	To further check the interaction effects between the labels, we grouped the existing labels into 4 derived labels: \textit{Stance} – to indicate if at least any one of \textit{Support} or \textit{Oppose} is flagged 1 with the corresponding tweet. Similarly – \textit{Hate} to indicate the association of either \textit{Directed Hate} or \textit{Generalized Hate}, \textit{Dialogue acts} - \textit{Allegation, Refutation, Justification} that were specific to the MeToo movement and \textit{Relevance} implying the relevance of text and image labels on tweets. Over 90\% of tweets don't have any dialogue acts associated with them.
+	
+\section{Preprocessing}\label{sec:preprocessing}
+Many of the images associated with the tweets contain text. 
+%The other images are more abstract in nature and may pose a much harder challenge for learning. 
+We initially planned to convert the images to text using OCR and use the output in our experiments, but due to time constraints, we could not. Hence we restricted ourselves to only the textual part of the tweets. 
+	\subsection{Data Cleaning}
+	We cleaned the tweets through the following steps:
+	\begin{enumerate}
+		\item  All tweets were converted to lower-case.
+	\item 
+	%Replaced multiple spaces with single space, 
+	Removed punctuations, extra spaces, extra newlines and irrelevant characters. 
+	%and so on etc.
+	\item    Replaced URLs in the tweet with the word `URL'.
+	\item     Replaced the @ handle with the special word `USER\_MENTION'.
+	\item      Replaced \#hashtag with hashtag.
+	\item       Removed `RT' character (retweet).
+	\end{enumerate}
+	We did not remove stop-words because their removal hampers the performance of sentiment classification as empirically investigated by Saif et al. \cite{saif-etal-2014-stopwords}. 
+
+\subsection{Converting Texts to Features}
+Vectorization refers to the process of transforming the collection of texts in a corpus to a numerical representation of feature vectors. All the terms in a corpus, may not be of equal importance – that’s when we use original term-weighting based vectorization approaches like TF–IDF. Using the \verb|TfidfVectorizer()| method, we converted the raw tweets into representable TF-IDF matrix forms. This is equivalent to using CountVectorizer, computing the word counts systematically, followed by TfidfTransformer, to compute Inverse Document Frequency (IDF) to obtain TF-IDF scores. We also created an indexed dictionary of all the tokens in our tweet corpus, then vectorized each token by turning it into sequences of integers using indices of the token dictionary. The coefficients corresponding to each token were extracted using these approaches. Obviously, all the tweets are not supposed to have the same lengths, hence we padded these tweets with zeroes, setting the maximum length. Keras provides the in-built \verb|Tokenizer()| class for these demonstrations.
+
+%	\subsection{Exploratory Data Analysis}
+
+	
+	
+	
+	%\noindent{\bf TODO: Do you also need to show how tweets corresponding to different labels intersect? --- Added a correlation matrix in plot.}

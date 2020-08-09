@@ -1,0 +1,11 @@
+	\section{Introduction}
+	
+	
+%	\subsection{The BigMM Grand Challenge}
+	%\textit{The Silence Breakers} --- this was the title of the Time Magazine annual edition in 2017 dedicated to MeToo; which 
+	The \#MeToo movement is a social movement against sexual harassment and abuse where people publicize allegations of sexual crimes committed by powerful  men. The movement garnered meaningful conversations in social space around sexual abuse and harassment. The MeToo Grand Challenge (BMGC) \cite{bmgc}, aimed at encouraging research towards deeper understanding of multiple facets of movement, was organized as a part of IEEE BigMM 2020. 
+	
+%\subsection{The Task}
+ The dataset released for the challenge   \cite{ghosh-chowdhury-etal-2019-youtoo,ghosh-chowdhury-etal-2019-speak,Gautam_Mathur_Gosangi_Mahata_Sawhney_Shah_2020} contained a total of 9,973 tweets with hashtag MeToo and were manually annotated into 5 linguistic aspects, namely --  Relevance, Hate Speech, Sarcasm, Dialogue Acts and Stance towards \#MeToo movement. The task was to develop multi-task frameworks aimed at predicting the labels corresponding to a given tweet. One may consider these aspects as tasks and can develop specialized models tailored for individual tasks. The evaluation metric for the challenge was the \textbf{A}rea \textbf{u}nder the ROC \textbf{C}urve (AUC), where the ROC curve (receiver operating characteristic curve) plots the true positive rate against the false positive rate at different classification thresholds.
+
+This paper describes the experiments conducted by us and the insights we gained as we worked on the task. We experimented with classical machine learning models, tree-based approaches, as well as deep learning methods and appropriately combined them. Our combined model achieved best AUC of 0.56365 for the task and ranked first \cite{leaderboard} in the competition. 

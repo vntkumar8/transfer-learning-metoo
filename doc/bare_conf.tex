@@ -1,0 +1,121 @@
+\documentclass[10pt, conference,compsocconf]{IEEEtran}
+% Add the compsocconf option for Computer Society conferences.
+%
+
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage{cite,multirow}
+
+\ifCLASSINFOpdf
+% \usepackage[pdftex]{graphicx}
+% declare the path(s) where your graphic files are
+% \graphicspath{{../pdf/}{../jpeg/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+% \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+% or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+% will default to the driver specified in the system graphics.cfg if no
+% driver is specified.
+% \usepackage[dvips]{graphicx}
+% declare the path(s) where your graphic files are
+% \graphicspath{{../eps/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+% \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. 
+\usepackage[cmex10]{amsmath}
+% *** SPECIALIZED LIST PACKAGES ***
+%
+\usepackage{algorithmic}
+
+
+\usepackage{array}
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+
+\usepackage{eqparbox}
+
+\usepackage{url}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{float}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{balance}
+\usepackage{algorithmic}
+\usepackage{graphicx,booktabs}
+\usepackage{textcomp}
+\usepackage{marvosym,graphicx,subfloat,tikz}
+\usepackage{graphicx} 
+\usepackage[numbers]{natbib}
+
+\usepackage{subfigure}
+\usepackage{natbib}
+\usepackage{rotating}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{xcolor,float}
+\begin{document}
+	%
+	
+
+	%\title{Classification of Domain Specific Tweets using Transfer Learning}
+	\title{Transfer Learning with Augmented Vocabulary for Tweet Classification}
+	%\title{Transfer Learning with augmented vocabulary for classifying Linguistic Aspects of Tweets}
+	% Todo: May want to write more here, think later
+	
+	\author{\IEEEauthorblockN{Vineet Kumar, Karthikeya Racharla}
+		\IEEEauthorblockA{Indian Institute of Technology \\Kharagpur, WB, India, 721302 \\
+			vineet.kumar@iitkgp.ac.in\\karthikeya.r@iitkgp.ac.in}
+		\and
+		\IEEEauthorblockN{Debapriyo Majumdar}
+		\IEEEauthorblockA{Indian Statistical Institute\\
+			CVPR Unit, 203 B.T. Road,\\Kolkata, WB, India, 700108\\
+			%line 3: City, Country\\
+			debapriyo@isical.ac.in}
+	}
+	
+	
+	
+	%\IEEEspecialpapernotice{(Invited Paper)}
+	\maketitle
+	\begin{abstract}
+	In this paper, we describe our experiments and insights gathered in the process of participating in the BigMM Grand Challenge 2020, where the task was to classify a set of tweets pertaining to the \#MeToo movement into five linguistic aspects. We analyzed the data set and experimented with several approaches, including classical machine learning models as well as state of the art deep learning architectures. We achieved our best results by applying transfer learning on a pre-trained ULMFiT model. Our best performing approach has ranked first on the leader-board when the grand challenge finished. 
+	\end{abstract}
+	
+	\begin{IEEEkeywords}
+		MeToo Movement, Tweet Classification, Transfer Learning, Augmented Vocabulary, ULMFiT
+	\end{IEEEkeywords}
+	
+	 
+	\IEEEpeerreviewmaketitle
+	
+    \input{intro}
+    \input{dataset}
+    %
+\input{approaches}
+
+
+\input{results}
+\input{conclusion}
+
+ \nocite{*} 
+
+
+	\bibliographystyle{ieeetr}
+	\balance 
+	
+	\bibliography{bibo}
+
+\end{document}
+
+

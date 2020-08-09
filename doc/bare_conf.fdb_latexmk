@@ -1,0 +1,18 @@
+# Fdb version 3
+["bibtex bare_conf"] 1596292894 "bare_conf.aux" "bare_conf.bbl" "bare_conf" 1596292894
+  "bare_conf.aux" 1596292873 2284 8c0e71902985e49292dc12db68661fa1 ""
+  "bare_conf.bcf" 0 -1 0 ""
+  "bibo.bib" 1596292848 2367 86a37f4b1c97c0049225cb228328b37d ""
+  "ieeetrans.bst" 0 -1 0 ""
+  (generated)
+  "bare_conf.bbl"
+["pdflatex"] 0 "bare_conf.tex" "bare_conf.pdf" "bare_conf" 0
+  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1480098837 961 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "IEEEtran.cls" 1584733186 201851 001edea5a345402fab5a141a4aef7a27 ""
+  "bare_conf.aux" 1596292873 2284 8c0e71902985e49292dc12db68661fa1 ""
+  "bare_conf.bbl" 1596292880 0 d41d8cd98f00b204e9800998ecf8427e "bibtex bare_conf"
+  "bare_conf.tex" 1596292866 30640 942c9cb01938df39710d834bbf220e82 ""
+  (generated)
+  "bare_conf.aux"
+  "bare_conf.log"
+  "bare_conf.pdf"
