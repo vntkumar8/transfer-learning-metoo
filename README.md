@@ -13,3 +13,6 @@ Our best performing approach ranked **first** (among 38 submissions) in the lead
 
 - Challenge Link : https://sites.google.com/iiitd.ac.in/bigmm2020datachallenge/home 
 - Competition Platform and Leaderboard : https://www.kaggle.com/c/ieee-bigmm-data-challenge/overviewv
+
+
+- Paper documenting the methodology to be added soon.
