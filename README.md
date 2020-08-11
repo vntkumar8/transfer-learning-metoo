@@ -11,8 +11,11 @@ Our best performing approach ranked **first** (among 38 submissions) in the lead
 - 05-ULMFiT_Stance.ipynb  -> Code for our ULMFiT Model, load vocabulary from `model/` and language model from [here](https://drive.google.com/file/d/1fILUAFhjxUe6ass4olak226bxonrQs9F/view?usp=sharing).
 
 
+-----------
+
 - Challenge Link : https://sites.google.com/iiitd.ac.in/bigmm2020datachallenge/home 
 - Competition Platform and Leaderboard : https://www.kaggle.com/c/ieee-bigmm-data-challenge/overviewv
 
+------------
 
-- Paper documenting the methodology to be added soon.
+- Paper documenting the methodology to be appear soon (currently under peer review).
