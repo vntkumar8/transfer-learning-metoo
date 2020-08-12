@@ -18,4 +18,4 @@ Our best performing approach ranked **first** (among 38 submissions) in the lead
 
 ------------
 
-- Paper documenting the methodology to be appear soon (currently under peer review).
+- System Description paper describing the methodology to be appear at IEEE Multimedia Big Data
