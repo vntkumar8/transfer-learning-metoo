@@ -18,4 +18,4 @@ Our best performing approach ranked **first** (among 38 submissions) in the lead
 
 ------------
 
-- System Description [paper](https://github.com/vntkumar8/transfer-learning-metoo/raw/master/doc/metoo-bigmm.pdf) describing the methodology to be appear at IEEE Multimedia Big Data
+- System Description [paper](https://github.com/vntkumar8/transfer-learning-metoo/raw/master/doc/metoo-bigmm.pdf) describing the methodology *to  appear at* IEEE Multimedia Big Data
